@@ -18,3 +18,4 @@ ddosa.ii_spectra_extract.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.re
 
 ddosa.mosaic_ii_skyimage.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
 
+ddosa.ii_lc_extract.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
