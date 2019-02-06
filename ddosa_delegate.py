@@ -26,3 +26,11 @@ try:
     ii_light.ii_light.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
 except ImportError:
     pass
+
+try:
+    import ddjemx
+    ddjemx.jemx_image.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
+    ddjemx.jemx_spe.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
+    ddjemx.jemx_lcr.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
+except ImportError:
+    pass
