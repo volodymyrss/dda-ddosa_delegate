@@ -1,6 +1,7 @@
 import os
 import ddosa
 import dataanalysis.caches.queue as queue
+import dataanalysis.core as da
 
 cache=queue.QueueCache(os.environ['DDA_QUEUE'])
 cache.delegate_by_default=True
@@ -22,13 +23,14 @@ ddosa.mosaic_ii_skyimage.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.re
 ddosa.ii_lc_extract.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
 
 try:
-    da.byname('ii_light').ii_light.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
+    da.byname('ii_light').__class__.ii_light.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
 except Exception:
     pass
 
 try:
-    da.byname('jemx_image').read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
-    da.byname('jemx_spe').read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
-    da.byname('jemx_lcr').read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
+    da.byname('jemx_image').__class__.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
+    da.byname('jemx_spe').__class__.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
+    da.byname('jemx_lcr').__class__.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
 except Exception:
     pass
+
