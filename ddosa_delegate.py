@@ -22,15 +22,13 @@ ddosa.mosaic_ii_skyimage.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.re
 ddosa.ii_lc_extract.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
 
 try:
-    import ii_light
-    ii_light.ii_light.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
-except ImportError:
+    da.byname('ii_light').ii_light.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
+except Exception:
     pass
 
 try:
-    import ddjemx
-    ddjemx.jemx_image.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
-    ddjemx.jemx_spe.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
-    ddjemx.jemx_lcr.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
-except ImportError:
+    da.byname('jemx_image').read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
+    da.byname('jemx_spe').read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
+    da.byname('jemx_lcr').read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
+except Exception:
     pass
