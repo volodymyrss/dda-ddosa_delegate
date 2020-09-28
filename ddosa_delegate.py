@@ -9,6 +9,8 @@ cache.delegate_by_default=True
 ddosa.CacheStack[-1].parent=cache
 ddosa.CacheStack.append(cache)
 
+print("CacheStack:", ddosa.CacheStack)
+
 class ii_skyimage(ddosa.ii_skyimage):
     read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
 
