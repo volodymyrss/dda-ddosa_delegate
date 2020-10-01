@@ -3,7 +3,10 @@ import ddosa
 import dataanalysis.caches.queue as queue
 import dataanalysis.core as da
 
-cache=queue.QueueCache(os.environ['DDA_QUEUE'])
+cache=queue.QueueCache(
+        os.environ.get('ODAHUB',
+                       os.environ.get('DDA_QUEUE'))
+        )
 cache.delegate_by_default=True
 
 ddosa.CacheStack[-1].parent=cache
