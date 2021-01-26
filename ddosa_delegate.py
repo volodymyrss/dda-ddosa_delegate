@@ -40,3 +40,8 @@ try:
 except Exception:
     pass
 
+try:
+    da.byname('RebinResponse').__class__.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
+except Exception:
+    pass
+
