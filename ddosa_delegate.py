@@ -5,7 +5,9 @@ import dataanalysis.core as da
 
 cache=queue.QueueCache(
         os.environ.get('ODAHUB',
-                       os.environ.get('DDA_QUEUE'))
+                       os.environ.get('DDA_QUEUE',
+                                "https://crux.staging-1-3.odahub.io@default",
+                           ))
         )
 
 cache.delegate_by_default=True
