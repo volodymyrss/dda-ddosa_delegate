@@ -22,14 +22,15 @@ else:
 
     print("CacheStack:", ddosa.CacheStack)
 
-    class ii_skyimage(ddosa.ii_skyimage):
-        read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
+    #class ii_skyimage(ddosa.ii_skyimage):
+    #    read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
 
+    ddosa.ISGRIImagePack.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
     ddosa.ii_spectra_extract.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
     ddosa.ii_lc_extract.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
 
-    ddosa.ghost_bustersImage.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
-    ddosa.ibis_gti.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
+    #ddosa.ghost_bustersImage.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
+    #ddosa.ibis_gti.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
 
     #ddosa.BinEventsSpectra.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
 
