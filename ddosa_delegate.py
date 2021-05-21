@@ -29,11 +29,6 @@ else:
     #ddosa.ii_spectra_extract.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
     ddosa.ii_lc_extract.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
 
-    try:
-        ddosa.ISGRISpectrumPack.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
-    except Exception:
-        pass
-
     #ddosa.ghost_bustersImage.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
     #ddosa.ibis_gti.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
 
@@ -41,9 +36,13 @@ else:
 
     ddosa.mosaic_ii_skyimage.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
 
+    try:
+        da.byname('ISGRISpectrumPack').__class__.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
+    except Exception:
+        pass
 
     try:
-        da.byname('ii_light').__class__.ii_light.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
+        da.byname('ii_light').__class__.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
     except Exception:
         pass
 
