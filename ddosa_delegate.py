@@ -26,12 +26,12 @@ else:
     #    read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
 
     ddosa.ISGRIImagePack.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
-    #ddosa.ii_spectra_extract.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
     ddosa.ii_lc_extract.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
 
     try:
         da.byname('ISGRISpectrumPack').read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
     except Exception as e:
+        ddosa.ii_spectra_extract.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
         print("\033[31mno process_isgri_spectra.ISGRISpectrumPack found!\033[0m", e)
 
     #ddosa.ghost_bustersImage.read_caches=[queue.QueueCache]+list(ddosa.CatExtract.read_caches)
